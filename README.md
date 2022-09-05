@@ -6,6 +6,7 @@ password: 12345
 
 ## postgreSQL user and dbname
 to connect to user and db
+
 psql -U binar -h 127.0.0.1 binar_challenge_6_dev
 
 "username": "binar",
