@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../page/assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../page/assets/css/starter.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Users Details</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Username</th>
+          <th scope="col">DOB</th>
+          <th scope="col">POB</th>
+          <th scope="col">City</th>
+          <th scope="col">Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"><%= users.id %></td>
+          <td ><%= users.username %></td>
+          <td ><%= users.user_game_biodata.dob %></td>
+          <td ><%= users.user_game_biodata.pob %></td>
+          <td ><%= users.user_game_biodata.city %></td>
+          <td ><%= users.user_game_biodata.gender %></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Game History</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Time</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% users.user_game_histories.forEach(function(user) { %>
+          <td scope="row"><%= user.id %></td>
+          <td ><%= user.play_time %></td>
+          <td ><%= user.score %></td>
+          <% }); %>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  </html>

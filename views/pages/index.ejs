@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional Game</title>
+  <link rel="stylesheet" href="assets/css/starter.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+
+<!-- Home Page -->
+
+<body>
+  <section id="home-page-container">
+    <nav id="navbar" class="navbar navbar-expand-lg" >
+      <div class="container-fluid">
+        <img id="icon" src="./image/icon.ico" class="navbar-brand text-primary py-4 px-5 mx-5" href="#" alt="website-icon">
+        <button id="list-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img id="list-icon" src="./image/list.svg" alt="list-icon" >
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item me-5">
+              <a class="nav-link" aria-current="page" href="#">HOME</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">WORK</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">ABOUT ME</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav pe-5 me-5 mb-2 mb-lg-0">
+            <li class="nav-item pe-5">
+              <a class="nav-link" aria-current="page" href="#">SIGN UP</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main id="header-text-container" class="container-fluid" >
+      <h1 
+        class="fw-bold text-center text-primary" 
+        >
+          PLAY TRADITIONAL GAME
+      </h1>
+      <h3 
+        class="text-primary" 
+      >
+        Experience new traditional game play
+      </h3>
+      <div id="play-button-container" onclick="to_homepage()">
+        <button id="play-button" type="button" class="fw-bold btn btn-warning">PLAY NOW</button>
+      <script>
+        function to_homepage(){
+          location.href= "/page/suit-game"
+        }
+      </script>
+      </div>
+      <div id="scroll-button-container">
+        <button class="scroll-button">
+          <h6 id="scroll-text">THE STORY</h6>
+         <img id="scroll-button" src="./image/scroll-down.svg">
+        </button>
+      </div>
+    </main>
+  </section>
+
+  <!-- The Games Page -->
+
+  <section>
+    <main id="the-games-container">
+      <div id="the-games-text-container">
+        <h3>What's so special?</h3>
+        <h2>THE GAMES</h2>
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button id="indicator-1" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button id="indicator-2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button id="indicator-3" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button id="indicator-4" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button id="indicator-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./image/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/rockpaperstrategy-1600.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </main>
+  </section>
+
+<!-- Features Page -->
+  <section>
+    <main id="features-container">
+      <div id="features-text-container">
+        <h3 id="features-desctiption">What's so special?</h3>
+        <h2 id="features-header">FEATURES</h2>
+        <div class="container-timeline">
+          <div class="ellipse features1">
+            <div class="feature-title1">
+              <h3>TRADITIONAL GAMES</h3>
+              <h5>
+                If you miss your childhood, we provide many traditional games
+                here
+              </h5>
+            </div>
+          </div>
+          <div class="ellipse features2">
+            <div class="feature-title2"><h3>GAME SUIT</h3></div>
+          </div>
+          <div class="ellipse features3">
+            <div class="feature-title3"><h3>TBD</h3></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- System Requirements Page -->
+  <section id="system-page-container">
+    <div class="center-text">  
+      <h6>Can my computer run this game?</h6>
+    </div>  
+    <div id="requirements-container">
+      <h2>SYSTEM REQUIREMENTS</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col border">
+            <h3>OS<h3>
+              <h6>Windows 7 64-bit only (no OSX support at this time)</h6>
+          </div>
+          <div class="col border">
+            <h3>PROCESSOR<h3>
+              <h6>Intel Core 2 Duo @ 2.5 GHZ or AMD Athlon X2 @ 2.8 GHZ</h6>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col border">
+            <h3>MEMORY<h3>
+              <h6>4 GB RAM</h6>
+          </div>
+          <div class="col border">
+            <h3>STORAGE<h3>
+              <h6>8 GB available space</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col border">
+            <h3>GRAPHICS<h3>
+              <h6>NVIDIA GeForce GTX 660 2GB or AMD Radeon HD 7850 2GB DirectX11 (Shader Model 5)</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Scores Page -->
+  <section id="scores-container">
+    <div id="scores-title-container">
+      <h2>TOP SCORES</h2>
+      <h6>This top score from previous games provided on this platform</h6>
+      <div id="see-more-button-container">
+        <button id="play-button" type="button" class="fw-bold btn btn-warning">see more</button>
+      </div>
+    </div>
+    <div id="cards-container">
+      <div class="card card-1">
+        <div class="card-body">
+          <img src="image/evan-lahti.jpg" class="profile-image" alt="testimonies">
+          <img src="image/ellipse-orange.png" class="ellipse-image" alt="ellipse">
+          <img src="image/twitter.svg" class="twitter-image" alt="twitter-icon">
+          <div class="card-id">
+            <h3 class="card-title">Evan Lahti</h3>
+            <p  class="card-title description">PC Gamer</p>
+            <p class="card-text">"One of my gaming highlights of the year."</p>
+            <p class="card-date"><small class="text-muted">June 18, 2021</small></p>
+          </div>
+        </div>
+      <div class="card card-2">
+        <div class="card-body">
+          <img src="image/jada-griffin.jpg" class="profile-image" alt="testimonies">
+          <img src="image/ellipse-orange.png" class="ellipse-image" alt="ellipse">
+          <img src="image/twitter.svg" class="twitter-image" alt="twitter-icon">
+          <div class="card-id">
+            <h3 class="card-title">Jada Griffin</h3>
+            <p  class="card-title description">Nerdreactor</p>
+            <p class="card-text">"The next big thing in the world of streaming and survival games."</p>
+            <p class="card-date"><small class="text-muted">July 10, 2021</small></p>
+          </div>
+        </div>
+      <div class="card card-3">
+        <div class="card-body">
+          <img src="image/aaron-williams.jpg" class="profile-image" alt="testimonies">
+          <img src="image/ellipse-orange.png" class="ellipse-image" alt="ellipse">
+          <img src="image/twitter.svg" class="twitter-image" alt="twitter-icon">
+          <div class="card-id">
+            <h3 class="card-title">Aaron Williams</h3>
+            <p  class="card-title description">Uproxx</p>
+            <p class="card-text">"Snoop Dogg Playing The Wildly Entertaining 'SOS' Is Ridiculous."</p>
+            <p class="card-date"><small class="text-muted">December 24, 2018</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Letter Section -->
+  <section class="container-fluid newsletter-section ">
+    <div class="d-flex justify-content-center justify-content-evenly">
+      <div id="skull-filter">
+        <img src="image/skull.png" alt="skull-image">
+      </div>
+        <div class="d-flex flex-column ">
+          <h4>Want to stay in touch with us?</h4>
+          <h2>NEWSLETTER <br> SUBSCRIBE</h2>
+          <h6>In order to start receiving our news, all you have to do is enter your email <br>
+          address. Everything else will be taken care of by us. We will send you emails <br>
+          containing information about games. We don't spam. 
+          </h6>
+          <div class="d-flex flex-wrap" style="margin-top: 20px;">
+            <form class="form-floating">
+              <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="exampleemail@gmail.com">
+              <label class="label-input"for="floatingInputValue">Input with value</label>
+            </form>
+            <div id="submit-button-container">
+              <button id="play-button" type="button" class="fw-bold btn btn-warning">Subscribe now</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav id="footer" class="navbar-expand-lg" >
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse left-footer-menu" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">MAIN</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">GAME FEATURES</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">SYSTEM REQUIREMENTS</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">QUOTES</a>
+            </li>
+          </ul>
+          <ul id="terms-container" class="navbar-nav pe-5 me-5 mb-2 mb-lg-0">
+            <li class="nav-item me-5">
+              <img src="image/facebook.svg">
+            </li>
+            <li id="twitter-icon" class="nav-item me-5" >
+              <img  src="image/twitter.svg">
+            </li>
+            <li class="nav-item me-5">
+              <svg width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.61 0.183594H5.98961C3.12627 0.183594 0.799805 2.55085 0.799805 5.4644V12.8973C0.799805 15.8163 3.12627 18.1781 5.98961 18.1781H20.6046C23.4733 18.1781 25.7944 15.8108 25.7944 12.8973V5.4644C25.7998 2.55085 23.4733 0.183594 20.61 0.183594ZM17.0959 9.54779L10.2575 12.8642C10.0731 12.9524 9.86705 12.82 9.86705 12.6103V5.7679C9.86705 5.55821 10.084 5.42578 10.2629 5.51958L17.1013 9.04564C17.3074 9.15048 17.302 9.44846 17.0959 9.54779Z" fill="#FF1313"/>
+              </svg>
+            </li>
+            <li class="nav-item me-5">
+              <img src="image/twitch.svg">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+     <div class="d-flex justify-content-between align-items-center" style="gap: 10px;">
+        <div >
+          <p>&copy 2022 emillio's game, inc all right reserved</p>
+        </div>
+        <ul class="d-flex">
+          <li>
+            <a class="nav-link" href="#">PRIVACY POLICY </a>
+          </li>
+          <li class="terms-border">
+            <a class="nav-link" href="#">TERMS OF SERVICE</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">CODE OF CONDUCT </a>
+          </li>
+        </ul>
+      </div>         
+  </section>
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script type="module" src="assets/js/starter.js"></script>
+</body>
+</html>
+
+
