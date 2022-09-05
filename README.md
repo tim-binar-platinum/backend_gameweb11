@@ -18,7 +18,7 @@ psql -U binar -h 127.0.0.1 binar_challenge_6_dev
 1. Get '/' renders login page
 2. Post '/login/auth' request body for login authorization
 3. Get '/page/users' renders array of username objects
-4. Get 'page/suit-game' renders suit game page
+4. Get '/page/suit-game' renders suit game page
 
 ### user game CRUD endpoints
 1. Get '/main-users' renders user list dashboard with username search tool, add user link, and CRUD pages link
