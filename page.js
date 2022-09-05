@@ -65,6 +65,7 @@ router.post('/create', async (req, res) => {
     res.redirect('/page/main-users')
 })
 
+// deletes selected user on the dashboard page. Deletes the user game biodata, histories and user game data in that particular order
 router.get('/delete/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -88,8 +89,7 @@ router.get('/delete/:id', async (req, res) => {
   res.redirect('/page/main-users')
 })
 
-
-
+// renders user data edit page
 router.get('/edit/:id', async (req, res) => {
   const { id } = req.params;
   users = await models.user_games.findOne({
@@ -103,6 +103,7 @@ router.get('/edit/:id', async (req, res) => {
   })
 })
 
+// request body for editing user data
 router.post('/update/:id', async (req, res) => {
   const { id } = req.params;
   const user = await models.user_games.findOne({
