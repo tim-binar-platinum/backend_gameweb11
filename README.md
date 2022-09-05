@@ -4,6 +4,15 @@
 username: admin
 password: 12345
 
+## postgreSQL user and dbname
+to connect to user and db
+psql -U binar -h 127.0.0.1 binar_challenge_6_dev
+
+"username": "binar",
+"password": "binar",
+"database": "binar_challenge_6_dev",
+"host": "127.0.0.1",
+
 ## available endpoints
 1. Get '/' renders login page
 2. Post '/login/auth' request body for login authorization
