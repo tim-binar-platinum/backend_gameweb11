@@ -19,7 +19,7 @@
     <button class="btn btn-warning">Add User</button>
     <script>
       function to_homepage(){
-        location.href= "/page/add-user"
+        location.href= "/add-user"
       }
     </script>
   </div>
@@ -38,13 +38,13 @@
         <td><%= user.username %></td>
         <td>
           <div>
-            <a style="color: blue" class="p-3" href="/page/detail-user/<%= user.id %>">
+            <a style="color: blue" class="p-3" href="/detail-user/<%= user.id %>">
               Details
             </a>
-            <a style="color: blue" class="p-3" href="/page/edit/<%= user.id %>">
+            <a style="color: blue" class="p-3" href="/edit/<%= user.id %>">
               Edit
             </a>
-            <a style="color: red" class="p-3" href="/page/delete/<%= user.id %>" onclick="return confirm('are you sure ?')">
+            <a style="color: red" class="p-3" href="/delete/<%= user.id %>" onclick="return confirm('are you sure ?')">
               Delete
             </a>
           </div>

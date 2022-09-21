@@ -1,3 +1,5 @@
+// move into local strategies of passsport
+
 const Express = require('express');
 const lodash = require ('lodash');
 const users = require ('./users.json')
