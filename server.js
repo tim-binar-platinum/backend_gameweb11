@@ -16,7 +16,6 @@ app.use(session({
 
 const passport = require('./lib/passport')
 
-
 app.use(flash())
 
 app.set('view engine', 'ejs')

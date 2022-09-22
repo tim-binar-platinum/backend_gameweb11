@@ -9,10 +9,7 @@ app.set('view engine', 'ejs')
 // render login page
 router.get('/', page.login)
 
-router.post('/auth', auth.login, function(res) {
-  console.log('ini')
-  res.redirect('/index', page.index)
-})
+router.post('/auth', auth.login)
 // render index page
 router.get('/index', page.index)
 
