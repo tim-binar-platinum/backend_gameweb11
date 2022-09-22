@@ -1,5 +1,6 @@
 const models = require ('../models')
 const {Op} = require('sequelize');
+const bcrypt = require ('bcrypt');
 
 module.exports = {
   dashboard: async (req, res) => {
@@ -35,14 +36,17 @@ module.exports = {
       users: users,
     })
   },
-  add: async (req, res) => {
+  add: (req, res) => {
     res.render('pages/add-user.ejs')
   },
-  userCreate: async (req, res) => {
+  create: async (req, res) => {
     const {username, password, dob, pob, city, gender} = req.body;
+    console.log(req.body)
+    const hash = bcrypt.hashSync(password, 10)
+    console.log(hash)
     const addUser = await models.user_games.create({
       username: username,
-      password: password,
+      password: hash,
     })
 
     await models.user_game_biodatas.create({

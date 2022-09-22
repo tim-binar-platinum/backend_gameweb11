@@ -1,29 +1,34 @@
 const Express = require('express');
 const router = require('./router');
 const models = require('./models');
+const session = require('express-session');
+const flash = require('express-flash');
 const app = Express();
 
-app.set('view engine', 'ejs')
 app.use(Express.json())
 app.use(Express.urlencoded({ extended: false }));
 
-// serving static files 
+app.use(session({
+  secret: '199719',
+  resave: false,
+  saveUninitialized: false
+}))
+
+const passport = require('./lib/passport')
+
+
+app.use(flash())
+
+app.set('view engine', 'ejs')
 app.use(Express.static('static'))
 
-// // serving static files for pages in in page route
-// app.use('/page', Express.static('static'))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use('/router', Express.static('static'))
 
-// // serving static files for pages in in login route
-// app.use('/login', Express.static('static'))
-
-// using imported routers
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(router)
-
-
-// // getting login page
-// app.get('/', (req, res) => {
-//   res.render('pages/login.ejs', {status: ''})
-// })
 
 models.sequelize.authenticate().then(() => {
   app.listen(4000, () => {

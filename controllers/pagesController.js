@@ -1,9 +1,8 @@
-const express = require("express")
 
 module.exports = {
-  // login: (req, res) => {
-  //   res.render('pages/index.ejs')
-  // },
+  login: (req, res) => {
+    res.render('pages/login.ejs', {status: ''})
+  },
   index: (req, res) => {
     res.render('pages/index.ejs')
   },

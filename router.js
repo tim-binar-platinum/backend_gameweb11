@@ -1,14 +1,18 @@
 const Express = require('express');
 const app = Express();
 const router = Express.Router()
-const login = require('./controllers/loginController');
+const auth = require('./controllers/authController');
 const page = require('./controllers/pagesController');
 const user = require('./controllers/userController');
 app.set('view engine', 'ejs')
 
 // render login page
-router.get('/', login.page)
+router.get('/', page.login)
 
+router.post('/auth', auth.login, function(res) {
+  console.log('ini')
+  res.redirect('/index', page.index)
+})
 // render index page
 router.get('/index', page.index)
 
@@ -21,8 +25,11 @@ router.get('/main-users', user.dashboard)
 // getting username biodatas from relation with user_game_biodata table
 router.get('/detail-user/:id', user.detail)
 
+// render add user page
+router.get('/add-user', user.add)
+
 // post create new user_games and user_game_biodatas data by passing autoincremented user_game id as user_game_biodata foreign key
-router.post('/create', user.add)
+router.post('/create', user.create)
 
 // deletes selected user on the dashboard page. Deletes the user game biodata, histories and user game data in that particular order
 router.get('/delete/:id', user.delete)
