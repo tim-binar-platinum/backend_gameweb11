@@ -1,8 +1,35 @@
 const models = require ('../models')
 const {Op} = require('sequelize');
 const bcrypt = require ('bcrypt');
+const jwt = require('jsonwebtoken')
 
 module.exports = {
+  login: async (req, res) => {
+    const {username, password} = req.body;
+    const user = await models.user_games.findOne({
+      where: {
+        username : username
+      }
+    })
+    if (!user) {
+      return res.render('pages/login.ejs', {status: 'user not found'})
+    }
+    const passwordCheck = await bcrypt.compareSync(password, user.password)
+    if (!passwordCheck) {
+      return res.render('pages/login.ejs', {status: 'wrong password'})
+    }
+    else {
+      const token = jwt.sign(
+        user_id= user.id,
+        secret= 'meong'
+      )
+      const payload = {
+        user_id: user.id,
+        token: token
+      }
+      return res.status(200).json(payload)
+    }
+  },
   dashboard: async (req, res) => {
     const searchName = req.query.search_name;
     let users;

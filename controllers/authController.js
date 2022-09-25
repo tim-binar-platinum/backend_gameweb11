@@ -1,17 +1,17 @@
 const passport = require("../lib/passport");
+const models= require("../models")
 
 module.exports = {
-  login: passport.authenticate('local', { successRedirect: '/index', failureRedirect: '/' })
+  //login local strategy for admin
+  login: passport.authenticate('local', { successRedirect: '/main-users', failureRedirect: '/invalid' , passReqToCallback: true}),
+  loginInvalid: (req, res) => {res.render('pages/login-admin.ejs', { status: 'incorrect credentials'})},
+  restrict: (req, res, next) =>
+  {
+  if (req.isAuthenticated()) { 
+    return next()
+  }
+    else res.send('unauthorized')
+  },
+  restrictUser: (res, req) => {
+  }
 }
-
-// login: passport.authenticate('local', function (err, user, next) {
-//   if (!user) {
-//     return res.redirect('/', { status: 'username not found'})
-//   }
-//   if (err) {
-//     return res.redirect('/', { status: 'error'})
-//   }
-//   if (user) {
-//     return res.redirect('/index')
-//   }
-// })(req, res)

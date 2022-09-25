@@ -18,6 +18,13 @@ const passport = require('./lib/passport')
 
 app.use(flash())
 
+app.use(function(req, res, next) {
+  res.locals.success_alert_message = req.flash('success_alert_message');
+  res.locals.error_message = req.flash('error_message');
+  res.locals.error = req.flash('error');
+  next();
+});
+
 app.set('view engine', 'ejs')
 app.use(Express.static('static'))
 
