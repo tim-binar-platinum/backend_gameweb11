@@ -12,6 +12,4 @@ module.exports = {
   }
     else res.send('unauthorized')
   },
-  restrictUser: (res, req) => {
-  }
 }
