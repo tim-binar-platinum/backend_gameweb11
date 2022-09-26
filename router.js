@@ -55,6 +55,6 @@ router.post('/suit-game/join', game.join)
 
 router.post('/suit-game/submit', game.submit)
 
-router.get('/suit-game/:roomCode', game.status)
+router.get('/suit-game/status/:roomCode', game.status)
 
 module.exports = router

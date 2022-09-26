@@ -19,6 +19,27 @@ const list = document.querySelectorAll(".select-container button")
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('userId');
 
+function checkStatusPeriodicaly () {
+  txtRoomCode.innerText = txtRoomCode.value
+  const roomCode = txtRoomCode.value;
+  const interval = setInterval(async () => {
+    const response = await axios.get('/suit-game/status/' + roomCode)
+
+    if (response.data.status == true) {
+      // kalo uda kedua belah pihak antar p1 dan p2 sudah memilih giliran makan stop interval
+      clearInterval(interval)
+      if (response.data.data.winnerUserId == userId) {
+        alert('You Are The Winner !')
+      } else if (response.data.data.winnerUserId == null) {
+        alert('Draw !')
+      } else {
+        alert('You Are The Loser !')
+      }
+    }
+
+  }, 2000)
+}
+
 windowP1.style.display = 'none'
 windowP2.style.display = 'none'
 // Disable button function
