@@ -8,6 +8,7 @@ module.exports = {
     })
 
     if (findRoom) {
+      console.log('ini id guest', userId)
       findRoom.gameGuestUserId = userId;
       await findRoom.save();
 
@@ -18,10 +19,10 @@ module.exports = {
         message: 'you are guest'
       })
     }
-    
+    console.log("ini id gameMaster", userId)
     await models.user_game_room.create({
-      roomCode: roomCode,
-      gameMasterUserId: userId,
+    roomCode: roomCode,
+    gameMasterUserId: userId,
     })
 
     res.json({
@@ -72,7 +73,7 @@ module.exports = {
       })
     }
     const payload = {
-      UserGameRoomId: findRoom.gameMasterUserId,
+      UserGameRoomId: findRoom.id,
     }
     if (userId == findRoom.gameMasterUserId) {
       Object.assign(payload, {
@@ -91,19 +92,43 @@ module.exports = {
         UserGameRoomId: findRoom.id,
       }
     })
-    if (! checkUserHistory) {
+    if (!checkUserHistory) {
       return res.json({
         success: false,
          status: 'settled',
          message: 'history not found',
        })
      }
-     checkUserHistory.playerTwoUserId = userId;
-     checkUserHistory.playerTwoPick = pick;
-     await checkUserHistory.save();
+    //  checkUserHistory.playerTwoUserId = userId;
+    //  checkUserHistory.playerTwoPick = pick;
+     await checkUserHistory.update({playerTwoUserId: userId, playerTwoPick: pick});
+
+
 
      const {playerOnePick, playerTwoPick} = checkUserHistory;
-     const result = this.calculate(playerOnePick, playerTwoPick)
+
+
+     const calculate = (p1Pick, p2Pick) => {
+      const schema = {
+        scissor: {
+          rock: false,
+          paper: true,
+        },
+        rock: {
+          paper: false,
+          scissor: true
+        },
+        paper: {
+          scissor: false,
+          rock: true
+        }
+      }
+    
+      return schema[p1Pick][p2Pick];
+    } 
+
+
+     const result = calculate(playerOnePick, playerTwoPick)
    
      if (typeof result == 'undefined') {
        checkUserHistory.playerOneStatus = 'draw';
@@ -125,27 +150,27 @@ module.exports = {
      res.json({
        success: true,
        status: 'settled',
-       code,
+       roomCode,
      })
   },
 
-  calculate: (p1Pick, p2Pick) => {
-    const schema = {
-      scissor: {
-        rock: false,
-        paper: true,
-      },
-      rock: {
-        paper: false,
-        scissor: true
-      },
-      paper: {
-        scissor: false,
-        rock: true
-      }
-    }
+  // calculate: (p1Pick, p2Pick) => {
+  //   const schema = {
+  //     scissor: {
+  //       rock: false,
+  //       paper: true,
+  //     },
+  //     rock: {
+  //       paper: false,
+  //       scissor: true
+  //     },
+  //     paper: {
+  //       scissor: false,
+  //       rock: true
+  //     }
+  //   }
   
-    return schema[p1Pick][p2Pick];
-  } 
+  //   return schema[p1Pick][p2Pick];
+  // } 
 }
 

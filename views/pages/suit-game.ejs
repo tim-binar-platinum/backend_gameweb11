@@ -25,7 +25,7 @@
     </div>
     <div id="play-window" class="content-container">
       <div id="p1-container" class="select-container">
-        <h2>YOU</h2>
+        <h2>MASTER</h2>
         <button class="rock" value="rock" >
           <img class="rock-image" src="./image/batu.png">
         </button>
@@ -38,14 +38,16 @@
       </div>
       <div class="select-container">
         <div id="status" class="game-status">
-          <p class="status-text">VS</p>
+          <p class="status-text"></p>
         </div>
-        <button class="refresh">
-          <img class="refresh-button" src="./image/refresh.png">
-        </button>
+        <div id="result-container"class="select-container-result">
+          <h3>Result</h3>
+          <p id="master-pick"></p>
+          <p id="guest-pick"></p>
+        </div>
       </div>
       <div id="p2-container" class="select-container">
-        <h2>OTHER PLAYER</h2>
+        <h2>GUEST</h2>
         <button class="rock-g" value="rock">
           <img class="rock-image" src="./image/batu.png">
         </button>

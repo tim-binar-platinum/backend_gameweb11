@@ -24,10 +24,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       playerTwoPick: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       playerTwoStatus: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       winnerUserId: {
         type: Sequelize.INTEGER
