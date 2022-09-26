@@ -11,13 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      user_game_histories.belongsTo(models.user_games)
     }
   }
   user_game_histories.init({
-    userGameId: DataTypes.INTEGER,
-    play_time: DataTypes.DATE,
-    score: DataTypes.ENUM('win', 'lose', 'draw')
+    playerOneUserId: DataTypes.INTEGER,
+    playerOnePick: DataTypes.STRING,
+    playerOneStatus: DataTypes.STRING,
+    playerTwoUserId: DataTypes.INTEGER,
+    playerTwoPick: DataTypes.STRING,
+    playerTwoStatus: DataTypes.STRING,
+    winnerUserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'user_game_histories',

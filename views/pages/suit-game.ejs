@@ -17,16 +17,22 @@
       <img class="icon" src="./image/logo 1.png">
       <h1 class="header-text"> ROCK PAPER SCISSORS </h1>
     </div>
-    <div class="content-container">
+    <div class="content-container" >
       <div class="select-container">
-        <h2>PLAYER 1</h2>
-        <button class="rock">
+        <input id="txtRoomCode" type="text" name="roomCode"/>
+        <button id="submitRoomCode" class="h2">Join Room</button>
+      </div>  
+    </div>
+    <div id="play-window" class="content-container">
+      <div id="p1-container" class="select-container">
+        <h2>YOU</h2>
+        <button class="rock" value="rock" >
           <img class="rock-image" src="./image/batu.png">
         </button>
-        <button class="paper">
+        <button class="paper" value="paper">
           <img class="paper-image" src="./image/kertas.png">
         </button>
-        <button class="scissors">
+        <button class="scissors" value="scissor">
           <img class="scissors-image" src="./image/gunting.png">
         </button>
       </div>
@@ -38,20 +44,21 @@
           <img class="refresh-button" src="./image/refresh.png">
         </button>
       </div>
-      <div class="select-container">
-        <h2>COM</h2>
-        <button class="rock a">
+      <div id="p2-container" class="select-container">
+        <h2>OTHER PLAYER</h2>
+        <button class="rock-g" value="rock">
           <img class="rock-image" src="./image/batu.png">
         </button>
-        <button class="paper b">
+        <button class="paper-g" value="paper">
           <img class="paper-image" src="./image/kertas.png">
         </button>
-        <button class="scissors c">
+        <button class="scissors-g" value="paper">
           <img class="scissors-image" src="./image/gunting.png">
         </button>
       </div>
     </div>
   </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="./assets/js/suit-game.js"></script>
 </body>
 </html>

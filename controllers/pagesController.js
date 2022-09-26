@@ -3,6 +3,9 @@ module.exports = {
   login: (req, res) => {
     res.render('pages/login.ejs', {status: ''})
   },
+  loginAdmin: (req, res) => {
+    res.render('pages/login-admin.ejs', {status: ''})
+  },
   index: (req, res) => {
     res.render('pages/index.ejs')
   },

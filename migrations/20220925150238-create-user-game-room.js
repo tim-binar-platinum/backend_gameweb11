@@ -1,35 +1,20 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('user_game_histories', {
+    await queryInterface.createTable('user_game_rooms', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      UserGameRoomId: {
-        type: Sequelize.INTEGER
-      },
-      playerOneUserId: {
-        type: Sequelize.INTEGER
-      },
-      playerOnePick: {
+      roomCode: {
         type: Sequelize.STRING
       },
-      playerOneStatus: {
-        type: Sequelize.STRING
-      },
-      playerTwoUserId: {
+      gameMasterUserId: {
         type: Sequelize.INTEGER
       },
-      playerTwoPick: {
-        type: Sequelize.INTEGER
-      },
-      playerTwoStatus: {
-        type: Sequelize.INTEGER
-      },
-      winnerUserId: {
+      gameGuestUserId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -43,6 +28,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('user_game_histories');
+    await queryInterface.dropTable('user_game_rooms');
   }
 };

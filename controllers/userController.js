@@ -34,7 +34,7 @@ module.exports = {
     const searchName = req.query.search_name;
     let users;
     if (!searchName) {
-      users = await models.user_games.findAll({include: [models.user_game_biodatas, models.user_game_histories]})
+      users = await models.user_games.findAll({include: [models.user_game_biodatas]})
     } else {
       users = await models.user_games.findAll({
         where: {
@@ -56,7 +56,7 @@ module.exports = {
       where: {
         id: id
       },
-      include: [models.user_game_biodatas, models.user_game_histories]
+      include: [models.user_game_biodatas]
     })
     console.log(users.user_game_biodata)
     res.render('pages/detail-user.ejs', {
@@ -89,12 +89,6 @@ module.exports = {
     const { id } = req.params;
 
     await models.user_game_biodatas.destroy({
-      where: {
-        id: id
-      }
-    })
-  
-    await models.user_game_histories.destroy({
       where: {
         id: id
       }
