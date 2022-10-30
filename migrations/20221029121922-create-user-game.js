@@ -1,31 +1,31 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('user_game_biodatas', {
+    await queryInterface.createTable('user_games', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userGameId: {
-        type: Sequelize.INTEGER,
+      username: {
         allowNull: false,
-        references : {
-          model: 'user_games',
-          key: 'id'
-        }
-      },
-      dob: {
-        type: Sequelize.DATEONLY
-      },
-      pob: {
         type: Sequelize.STRING
       },
-      city: {
+      password: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      birth_place: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       gender: {
+        allowNull: false,
         type: Sequelize.ENUM('male', 'female')
       },
       createdAt: {
@@ -39,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('user_game_biodatas');
+    await queryInterface.dropTable('user_games');
   }
 };

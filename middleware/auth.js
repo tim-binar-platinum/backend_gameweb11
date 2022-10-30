@@ -7,12 +7,13 @@ const jwt = require ('jsonwebtoken')
     return res.status(403).send("a token is required for authentication");
   }
   try {
-    const decoded = jwt.verify(token, "meong");
-    req.user = decoded;
+    const decoded =  jwt.verify(token, process.env.JWT_SECRET);
+    req.userId = decoded.data
+    req.token = token
+    return next()
   } catch (err) {
     return res.status(401).send("invalid token")
   }
-  return next()
  }
 
  module.exports = verifyToken

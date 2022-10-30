@@ -2,28 +2,24 @@
 const {
   Model
 } = require('sequelize');
-
-
-
-const bcrypt = require('bcrypt')
 module.exports = (sequelize, DataTypes) => {
-  class user_games extends Model {
+  class game_history extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-
     static associate(models) {
-      user_games.hasOne(models.user_game_biodatas)
+      game_history.belongsTo(models.user_game)
+
     }
   }
-  user_games.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING
+  game_history.init({
+    user_id: DataTypes.INTEGER,
+    status: DataTypes.ENUM('win', 'lose')
   }, {
     sequelize,
-    modelName: 'user_games',
+    modelName: 'game_history',
   });
-  return user_games;
+  return game_history;
 };
