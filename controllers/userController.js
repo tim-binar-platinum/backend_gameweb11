@@ -88,8 +88,7 @@ module.exports = {
   },
 
   delete: async (req, res) => {
-    const { id } = req.params;
-  
+    const id = req.userId;
     await models.user_game.destroy({
       where: {
         id: id
@@ -99,7 +98,6 @@ module.exports = {
   },
 
   edit: async (req, res) => {
-    console.log(req.userId)
     const id  = req.userId;
     users = await models.user_game.findOne({
       where: {
