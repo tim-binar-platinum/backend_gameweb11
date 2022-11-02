@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       user_game.hasMany(models.game_history, {
         foreignKey: 'user_id'
       })
-
     }
   }
   user_game.init({
