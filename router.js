@@ -13,10 +13,10 @@ router.post('/login', user.login)
 router.get('/users', userAuth, user.dashboard)
 
 // deletes selected user on the dashboard page. Deletes the user game biodata, histories and user game data in that particular order
-router.get('/delete/', userAuth, user.delete)
+router.delete('/delete/', userAuth, user.delete)
 
 // request body for editing user data
-router.post('/update/', userAuth, user.edit)
+router.put('/update/', userAuth, user.edit)
 
 // plan to be used for getting user game histories
 // router.get('/detail-user/:id', userAuth, user.detail)

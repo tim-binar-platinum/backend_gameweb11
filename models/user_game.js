@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   user_game.init({
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false

@@ -8,7 +8,7 @@ app.use(Express.json())
 app.use(Express.urlencoded({ extended: false }));
 app.use(router)
 
-models.sequelize.authenticate().then(() => {
+models.sequelize.sync().then(() => {
   app.listen(4000, () => {
     console.log('listening port 4000')
   })

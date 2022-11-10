@@ -70,11 +70,12 @@ module.exports = {
   // },
 
   register: async (req, res) => {
-    const {username, password, name, birth_place, gender} = req.body;
+    const {username, password, name, birth_place, gender, email} = req.body;
     console.log(req.body)
     const hash = bcrypt.hashSync(password, 10)
     console.log(hash)
     const addUser = await models.user_game.create({
+      email: email,
       username: username,
       password: hash,
       name: name,
@@ -99,6 +100,7 @@ module.exports = {
 
   edit: async (req, res) => {
     const id  = req.userId;
+    console.log(req.userId, req.token)
     users = await models.user_game.findOne({
       where: {
         id: id
