@@ -19,7 +19,8 @@ module.exports = {
 
     const points = await models.game_history.findAndCountAll({
       where: {
-        user_id: id
+        user_id: id,
+        status: 'win'
       }
     })
     return res.status(200).json(points.count)
