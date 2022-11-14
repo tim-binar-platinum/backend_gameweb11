@@ -14,7 +14,7 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.ENUM('win', 'lose')
+        type: Sequelize.ENUM('win', 'lose', 'tie')
       },
       createdAt: {
         allowNull: false,
