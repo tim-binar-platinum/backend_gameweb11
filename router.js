@@ -23,13 +23,6 @@ router.post('/game', userAuth, game.point)
 
 router.get('/points', userAuth, game.totalPoint)
 
-// plan to be used for getting user game histories
-// router.get('/detail-user/:id', userAuth, user.detail)
-
-// router.post('/suit-game/join',userAuth, game.join)
-
-// router.post('/suit-game/submit',userAuth, game.submit)
-
-// router.get('/suit-game/status/:roomCode',userAuth, game.status)
+router.get('/history', userAuth, game.history)
 
 module.exports = router

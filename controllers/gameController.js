@@ -23,5 +23,16 @@ module.exports = {
       }
     })
     return res.status(200).json(points.count)
+  },
+
+  history: async (req, res) => {
+    const id = req.userId;
+
+    const history = await models.game_history.findAll({
+      where: {
+        user_id: id
+      }
+    })
+    return res.status(200).json(history)
   }
 }
