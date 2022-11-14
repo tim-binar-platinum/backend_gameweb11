@@ -1,6 +1,7 @@
 const Express = require('express');
 const router = Express.Router()
 const user = require('./controllers/userController');
+const game = require('./controllers/gameController')
 const userAuth = require('./middleware/auth')
 
 // post create new user_games and user_game_biodatas data by passing autoincremented user_game id as user_game_biodata foreign key
@@ -13,10 +14,14 @@ router.post('/login', user.login)
 router.get('/users', userAuth, user.dashboard)
 
 // deletes selected user on the dashboard page. Deletes the user game biodata, histories and user game data in that particular order
-router.delete('/delete/', userAuth, user.delete)
+router.delete('/delete', userAuth, user.delete)
 
 // request body for editing user data
-router.put('/update/', userAuth, user.edit)
+router.put('/update', userAuth, user.edit)
+
+router.post('/game', userAuth, game.point)
+
+router.get('/points', userAuth, game.totalPoint)
 
 // plan to be used for getting user game histories
 // router.get('/detail-user/:id', userAuth, user.detail)
