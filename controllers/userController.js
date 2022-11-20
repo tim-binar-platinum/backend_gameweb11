@@ -52,6 +52,21 @@ module.exports = {
       searchName: searchName
       })
   },
+  profile: async (req, res) => {
+    const id  = req.userId;
+    const user = models.user_game.findOne({
+      where: id
+    })
+    if(!user) {
+      res.status(400).json({
+        message:'user not found'
+      })
+    }
+    res.status(200).json({
+      message: 'success',
+      data: user
+    })
+  },
 
   // can be user for returning game details
   // detail: async (req, res) => {

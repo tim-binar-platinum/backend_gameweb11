@@ -19,6 +19,8 @@ router.delete('/delete', userAuth, user.delete)
 // request body for editing user data
 router.put('/update', userAuth, user.edit)
 
+router.get('/users/profile', userAuth, user.profile)
+
 router.post('/game', userAuth, game.point)
 
 router.get('/points', userAuth, game.totalPoint)
