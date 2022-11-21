@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     birth_date: {
       allowNull: true,
-      type: DataTypes.STRING
+      type: DataTypes.DATE
     },
     points: {
       allowNull: true,
