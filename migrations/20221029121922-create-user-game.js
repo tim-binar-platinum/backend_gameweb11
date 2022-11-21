@@ -28,9 +28,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      birth_date: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
       gender: {
         allowNull: false,
         type: Sequelize.ENUM('male', 'female')
+      },
+      points: {
+        allowNull: true,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

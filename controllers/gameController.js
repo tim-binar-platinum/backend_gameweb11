@@ -11,7 +11,24 @@ module.exports = {
       user_id: id,
       status
     })
-    return res.status(200).json(game)
+    const points = await models.game_history.findAndCountAll({
+      where: {
+        user_id: id,
+        status: 'win'
+      }
+    })
+    const user = await models.user_game.findOne({
+      where : {
+        id : id
+      }
+    })
+    await user.update({
+      points : points.count
+    })
+    return res.status(200).json({
+      history: game,
+      points: points.count
+    })
   },
 
   totalPoint: async (req, res) => {

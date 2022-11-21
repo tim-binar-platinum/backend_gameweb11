@@ -54,9 +54,10 @@ module.exports = {
   },
   profile: async (req, res) => {
     const id  = req.userId;
-    const user = models.user_game.findOne({
+    const user = await models.user_game.findOne({
       where: id
     })
+    console.log(id, user)
     if(!user) {
       res.status(400).json({
         message:'user not found'
