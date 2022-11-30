@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(Express.json())
 app.use(Express.urlencoded({ extended: false }));
-app.use('/api', router)
+app.use(router)
 
 models.sequelize.sync().then(() => {
   app.listen(4000, () => {

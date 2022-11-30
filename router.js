@@ -11,7 +11,7 @@ router.post('/register', user.register)
 router.post('/login', user.login)
 
 // getting username object list from user_games table
-router.get('/users', userAuth, user.dashboard)
+router.get('/users', user.dashboard)
 
 // deletes selected user on the dashboard page. Deletes the user game biodata, histories and user game data in that particular order
 router.delete('/delete', userAuth, user.delete)

@@ -37,7 +37,12 @@ module.exports = {
     const searchName = req.query.search_name;
     let users;
     if (!searchName) {
-      users = await models.user_game.findAll()
+      users = await models.user_game.findAll({
+        order: [
+          ['points', 'ASC']
+        ],
+        attributes: ['username', 'points']
+      })
     } else {
       users = await models.user_game.findAll({
         where: {
@@ -45,6 +50,9 @@ module.exports = {
             [Op.iLike]: `%${searchName}%`
           }
         },
+        order: [
+          ['points', 'DESC']
+        ]
       })
     }
     res.status(200).json({
@@ -87,6 +95,17 @@ module.exports = {
 
   register: async (req, res) => {
     const {username, password, name, birth_place, gender, email} = req.body;
+    console.log(username)
+    const checkUser = await models.user_game.findOne({
+      where: {
+        username
+      }
+    })
+    if(checkUser){
+      res.status(400).json({
+        message: 'username has been used'
+      })
+    } else {
     console.log(req.body)
     const hash = bcrypt.hashSync(password, 10)
     console.log(hash)
@@ -102,6 +121,7 @@ module.exports = {
       message: 'user created',
       data: addUser
     })
+  }
   },
 
   delete: async (req, res) => {
