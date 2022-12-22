@@ -10,7 +10,6 @@ const jwt = require ('jsonwebtoken')
     const decoded =  jwt.verify(token, process.env.JWT_SECRET);
     req.userId = decoded.user_id
     req.token = token
-    console.log(req.userId)
     return next()
   } catch (err) {
     return res.status(401).send("invalid token")

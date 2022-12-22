@@ -65,12 +65,6 @@ module.exports = {
     const user = await models.user_game.findOne({
       where: id
     })
-    console.log(id, user)
-    if(!user) {
-      res.status(400).json({
-        message:'user not found'
-      })
-    }
     res.status(200).json({
       message: 'success',
       data: user
@@ -95,7 +89,6 @@ module.exports = {
 
   register: async (req, res) => {
     const {username, password, name, birth_place, gender, email} = req.body;
-    console.log(username)
     const checkUser = await models.user_game.findOne({
       where: {
         username
@@ -106,9 +99,7 @@ module.exports = {
         message: 'username has been used'
       })
     } else {
-    console.log(req.body)
     const hash = bcrypt.hashSync(password, 10)
-    console.log(hash)
     const addUser = await models.user_game.create({
       email: email,
       username: username,
@@ -136,17 +127,11 @@ module.exports = {
 
   edit: async (req, res) => {
     const id  = req.userId;
-    console.log(req.userId, req.token)
     users = await models.user_game.findOne({
       where: {
         id: id
       },
     })
-    if(!users){
-      res.status(400).json({
-        message: 'unauthorized'
-      })
-    }
     await users.update(req.body);
     res.status(200).json({
       message: 'user updated',

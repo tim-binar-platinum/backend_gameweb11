@@ -4,7 +4,6 @@ const {Op} = require('sequelize');
 module.exports = {
   point: async (req, res) => {
     const id  = req.userId;
-    console.log(id)
     const { status } = req.body;
     
     const game = await models.game_history.create({
